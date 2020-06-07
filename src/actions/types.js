@@ -1,3 +1,4 @@
 export const GET_PATIENT = "GET_PATIENT";
-export const DELETE_PATIENT = "DELETE_PATIENT";
+export const SAVE_PATIENT = "SAVE_PATIENT";
 export const UPDATE_PATIENT = "UPDATE_PATIENT";
+export const DELETE_PATIENT = "DELETE_PATIENT";

@@ -12,7 +12,7 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <div>
+        <div style={{height: "685px"}}>
           <ToastContainer />
           <NavBar />
           <Switch>
@@ -20,8 +20,9 @@ class App extends Component {
             <Route exact path="/record/:id" component={Record} />
             <Route exact path="/record" component={Record} />
             <Route exact path="/" component={Home} />
-          </Switch>
+          </Switch>                    
         </div>
+        <p className="pr-3 float-right">Developed by Soft & Sharing</p>
       </BrowserRouter>
     );
   }
