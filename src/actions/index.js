@@ -2,6 +2,8 @@ import axios from "axios";
 import * as TYPES from "./types";
 import * as api from "./apiEndpoint";
 
+axios.defaults.baseURL = process.env.REACT_APP_API_URL;
+
 const getHeader = () => {
   return {
     //on later time >> can add token //
