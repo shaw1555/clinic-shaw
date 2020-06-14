@@ -1,8 +1,6 @@
-import axios from "axios";
+import http from "../services/httpService";
 import * as TYPES from "./types";
 import * as api from "./apiEndpoint";
-
-axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 
 const getHeader = () => {
   return {
@@ -15,7 +13,7 @@ const getHeader = () => {
 
 export const fetchPatients = () => async (dispatch) => {
   try {
-    const res = await axios.get(api.urlGetPatient, getHeader());
+    const res = await http.get(api.urlGetPatient, getHeader());
     dispatch({ type: TYPES.GET_PATIENT, payload: res.data });
   } catch (error) {
     dispatch({ type: TYPES.GET_PATIENT, payload: [] });
@@ -25,7 +23,7 @@ export const fetchPatients = () => async (dispatch) => {
 
 export const savePatient = (patient) => async (dispatch) => {
   try {
-    const res = await axios.post(api.urlGetPatient, patient, getHeader());
+    const res = await http.post(api.urlGetPatient, patient, getHeader());
     dispatch({ type: TYPES.SAVE_PATIENT, payload: res.data });
   } catch (error) {
     dispatch({ type: TYPES.SAVE_PATIENT, payload: [] });
@@ -38,7 +36,7 @@ export const updatePatient = (patient) => async (dispatch) => {
   try {
     const url = api.urlGetPatient + "/" + patient._id;
     delete patient["_id"];
-    const res = await axios.put(url, patient, getHeader());
+    const res = await http.put(url, patient, getHeader());
     dispatch({ type: TYPES.UPDATE_PATIENT, payload: res.data });
   } catch (error) {
     dispatch({ type: TYPES.UPDATE_PATIENT, payload: [] });
@@ -49,7 +47,7 @@ export const updatePatient = (patient) => async (dispatch) => {
 
 export const deletePatient = (_id) => async (dispatch) => {
   try {
-    const res = await axios.delete(api.urlGetPatient+"/"+_id, getHeader());
+    const res = await http.delete(api.urlGetPatient+"/"+_id, getHeader());
     dispatch({ type: TYPES.DELETE_PATIENT, payload: res.data });
   } catch (error) {
     dispatch({ type: TYPES.DELETE_PATIENT, payload: [] });

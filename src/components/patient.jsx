@@ -122,8 +122,7 @@ class Patient extends Form {
 
     const filterData = patients.filter(function (patient) {
       return (
-        search(patient.name, serachValue) ||
-        search(patient.dateOfYear, serachValue) ||
+        search(patient.name, serachValue) ||        
         search(patient.age, serachValue) ||
         search(patient.address, serachValue) ||
         search(patient.mobileNo, serachValue) ||
@@ -173,10 +172,9 @@ class Patient extends Form {
                   <thead className="thead-dark">
                     <tr>
                       <th scope="col">Name</th>
-                      <th scope="col">Date Of Year</th>
                       <th scope="col">Age</th>
                       <th scope="col">Address</th>
-                      <th scope="col">Mobile No</th>
+                      <th scope="col">Mobile</th>
                       <th scope="col">Date</th>
                       <th scope="col" />
                       <th scope="col" />
@@ -187,8 +185,7 @@ class Patient extends Form {
                       <tr key={x._id}>
                         <td>
                           <Link to={`/record/${x._id}`}>{x.name}</Link>
-                        </td>
-                        <td>{x.dateOfYear}</td>
+                        </td>                        
                         <td>{x.age}</td>
                         <td>{x.address}</td>
                         <td>{x.mobileNo}</td>
@@ -235,10 +232,10 @@ class Patient extends Form {
           footer={[]}
         >
           <form onSubmit={this.handleSubmit}>
-            {this.renderInput("name", "Name")}
-            {this.renderInput("mobileNo", "Mobile No")}
-            {this.renderInput("address", "Address")}
+            {this.renderInput("name", "Name")}            
             {this.renderInput("age", "Age", "number")}
+            {this.renderInput("address", "Address")}
+            {this.renderInput("mobileNo", "Mobile")}
             {this.renderButton("Save")}
           </form>
         </Modal>

@@ -1,3 +1,3 @@
-export const search = (baseString, filter) => {
-  return baseString.toString().replace(/ /g, "").toLowerCase().includes(filter.replace(/ /g, "").toLowerCase());
+export const search = (baseString, filter) => {  
+  return baseString === null ? true : baseString.toString().replace(/ /g, "").toLowerCase().includes(filter.replace(/ /g, "").toLowerCase());
 };
