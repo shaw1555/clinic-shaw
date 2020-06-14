@@ -2,3 +2,8 @@ export const GET_PATIENT = "GET_PATIENT";
 export const SAVE_PATIENT = "SAVE_PATIENT";
 export const UPDATE_PATIENT = "UPDATE_PATIENT";
 export const DELETE_PATIENT = "DELETE_PATIENT";
+
+export const GET_RECORD = "GET_RECORD";
+export const SAVE_RECORD = "SAVE_RECORD";
+export const UPDATE_RECORD = "UPDATE_RECORD";
+export const DELETE_RECORD = "DELETE_RECORD";

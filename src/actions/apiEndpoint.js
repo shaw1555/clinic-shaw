@@ -3,3 +3,4 @@
 // const apiEndpoint = 'http://shaw15-001-site1.dtempurl.com/service/api'
 
 export const urlGetPatient = '/patients';
+export const urlGetRecord = '/records';

@@ -11,10 +11,10 @@ import {
   savePatient,
   updatePatient,
   deletePatient,
-} from "../actions/index";
+} from "../actions/patient";
 import { search } from "../ultility/search";
 import {formatDate} from "../ultility/formatDate";
-import "../css/patient.css";
+import "../css/index.css";
 
 class Patient extends Form {
   state = {
@@ -134,12 +134,7 @@ class Patient extends Form {
 
   render() {
     const { filterData } = this.state;
-    
-    const layout = {
-      labelCol: { span: 8 },
-      wrapperCol: { span: 16 },
-    };
-
+ 
     return (
       <div className="col">
         <div className="pt-5 pb-3">
