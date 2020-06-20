@@ -6,9 +6,9 @@ class NavBar extends Component {
   render() {
     return (
       <nav className="navbar navbar-expand-sm navbar-light bg-light">
-        <NavLink to="/" className="navbar-brand">
+        {/* <NavLink to="/" className="navbar-brand">
           Home
-        </NavLink>
+        </NavLink> */}
         <NavLink to="/patient" className="navbar-brand">
           Patient
         </NavLink>

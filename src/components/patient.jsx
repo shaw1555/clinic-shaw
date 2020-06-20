@@ -30,6 +30,7 @@ class Patient extends Form {
     },
     errors: {},
     _id: "",
+    serachValue: "",
   };
 
   schema = {    
@@ -56,6 +57,8 @@ class Patient extends Form {
       visible: false,
       filterData: this.props.patients
     });
+
+    this.filterEvent(this.state.serachValue);
   };
 
   deleteEvent = async (x) => {
@@ -129,7 +132,7 @@ class Patient extends Form {
         search(patient.date, serachValue)
       );
     });
-    this.setState({ filterData });
+    this.setState({ filterData, serachValue });
   };
 
   render() {
@@ -137,7 +140,8 @@ class Patient extends Form {
  
     return (
       <div className="col">
-        <div className="pt-5 pb-3">
+        <h3 className="pt-2 text-center">Patients</h3>
+        <div className="pt-3 pb-3">
           <div className="row pb-3">
             <div className="col-6 input-group">
               <input
