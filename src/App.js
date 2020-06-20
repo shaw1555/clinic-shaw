@@ -19,7 +19,8 @@ class App extends Component {
             <Route exact path="/patient" component={Patient} />
             <Route exact path="/record/:id" component={Record} />
             <Route exact path="/record" component={Record} />
-            <Route exact path="/" component={Home} />
+            {/* <Route exact path="/" component={Home} /> */}
+            <Route exact path="/" component={Patient } />
           </Switch>                    
         </div>
         <p className="pr-3 float-right">Developed by Soft & Sharing</p>
