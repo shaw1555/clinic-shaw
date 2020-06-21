@@ -215,7 +215,7 @@ class Record extends Form {
                         <td>
                           <i
                             onClick={() => this.showModal(x)}
-                            style={{ color: "grey", fontSize: 18 }}
+                            style={{ color: "#007bff", fontSize: 18 }}
                             className="fa fa-pencil-square-o"
                             aria-hidden="true"
                           ></i>
