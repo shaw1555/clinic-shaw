@@ -28,7 +28,7 @@ class Patient extends Form {
       name: "",
       mobileNo: "",
       address: "",
-      age: "",
+      // age: "",
       dateOfBirth: defDate,
     },
     errors: {},
@@ -40,6 +40,7 @@ class Patient extends Form {
     name: Joi.string().required().min(3).max(50).label("Name"),
     mobileNo: Joi.string().required().label("Mobile No"),
     address: Joi.string().required().label("Address"),
+    dateOfBirth: Joi.date().required().label("Date of Birth"),
     // age: Joi.number().required().min(1).max(150).label("Age"),
   };
 
@@ -79,7 +80,7 @@ class Patient extends Form {
       name: "",
       mobileNo: "",
       address: "",
-      age: "",
+      // age: "",
       dateOfBirth: defDate,
     };
 
@@ -91,7 +92,7 @@ class Patient extends Form {
         name: patient.name,
         mobileNo: patient.mobileNo,
         address: patient.address,
-        age: patient.age,
+        // age: patient.age,
         dateOfBirth: patient.dateOfBirth,
       };
       _id = patient._id;
@@ -132,6 +133,7 @@ class Patient extends Form {
       return (
         search(patient.name, serachValue) ||        
         search(patient.age, serachValue) ||
+        search(patient.dateOfBirth, serachValue) ||
         search(patient.address, serachValue) ||
         search(patient.mobileNo, serachValue) ||
         search(patient.date, serachValue)
@@ -176,6 +178,7 @@ class Patient extends Form {
                   <thead className="thead-dark">
                     <tr>
                       <th scope="col">Name</th>
+                      <th scope="col">DOB</th>
                       <th scope="col">Age</th>
                       <th scope="col">Address</th>
                       <th scope="col">Mobile</th>
@@ -190,6 +193,7 @@ class Patient extends Form {
                         <td>
                           <Link to={`/record/${x._id}`}>{x.name}</Link>
                         </td>                        
+                        <td>{formatDate(x.dateOfBirth)}</td>
                         <td>{x.age}</td>
                         <td>{x.address}</td>
                         <td>{x.mobileNo}</td>
@@ -238,7 +242,7 @@ class Patient extends Form {
           <form onSubmit={this.handleSubmit}>
             {this.renderInput("name", "Name")}            
             {/* {this.renderInput("age", "Age", "number")} */}
-            {this.renderDatePicker("dateOfBirth" , "Date Of Birth")}
+            {this.renderDatePicker("dateOfBirth" , "Date of Birth")}
             {this.renderInput("address", "Address")}
             {this.renderInput("mobileNo", "Mobile")}
             {this.renderButton("Save")}
