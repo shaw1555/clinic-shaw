@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import Joi from "joi-browser";
 import Input from "./input";
+import { DatePicker } from "antd";
 
+const dateFormat = "YYYY-MM-DD";
 class Form extends Component {
   state = {
     data: {},
@@ -49,6 +51,15 @@ class Form extends Component {
     this.setState({ data, errors });
   };
 
+  onDateChange = (value) => {
+    if (!value) return;
+    const errors = { ...this.state.errors };
+    const data = { ...this.state.data };    
+    data["dateOfBirth"] = value.format(dateFormat);    
+    this.setState({ data, errors });
+    console.log("Date: ", data);
+  };
+
   renderButton(label) {
     return (
       <button disabled={this.validate()} className="btn btn-success">
@@ -57,6 +68,22 @@ class Form extends Component {
     );
   }
 
+  renderDatePicker(name, label){
+    const { data, errors } = this.state;    
+    return(
+      <div className="mb-3">
+        <div><label>{label}</label></div>
+        <DatePicker
+        style={{ width: "100%" }}
+        defaultValue={data[name]}
+        format={dateFormat}
+        onChange={this.onDateChange}
+        error={errors[name]}
+        />
+      </div>
+      
+    )    
+  }
 
   renderInput(name, label, type = "text") {
 

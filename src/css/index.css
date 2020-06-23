@@ -10,13 +10,7 @@
 
 .navbar-light .navbar-brand:hover,
 .navbar-light .navbar-brand:focus {
-    color: rgba(0, 0, 0, 0.9)!important;
-}
-
-.table .thead-dark th {
-    color: #333!important;
-    background-color: #f6f8f8!important;
-    border-color: #f6f8f8!important;
+    color: #096dd9!important;
 }
 
 .ant-modal-header {

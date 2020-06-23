@@ -4,6 +4,7 @@ import { Popconfirm, Modal, Button, Space, Input } from "antd";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import _ from "lodash";
+import moment from "moment";
 import Joi from "joi-browser";
 import Form from "./common/form";
 import {
@@ -16,6 +17,7 @@ import { search } from "../ultility/search";
 import {formatDate} from "../ultility/formatDate";
 import "../css/index.css";
 
+const defDate = moment(new Date());
 class Patient extends Form {
   state = {
     filterData: [],
@@ -27,6 +29,7 @@ class Patient extends Form {
       mobileNo: "",
       address: "",
       age: "",
+      dateOfBirth: defDate,
     },
     errors: {},
     _id: "",
@@ -37,7 +40,7 @@ class Patient extends Form {
     name: Joi.string().required().min(3).max(50).label("Name"),
     mobileNo: Joi.string().required().label("Mobile No"),
     address: Joi.string().required().label("Address"),
-    age: Joi.number().required().min(1).max(150).label("Age"),
+    // age: Joi.number().required().min(1).max(150).label("Age"),
   };
 
   componentDidMount = async () => {
@@ -77,6 +80,7 @@ class Patient extends Form {
       mobileNo: "",
       address: "",
       age: "",
+      dateOfBirth: defDate,
     };
 
     let modalTitle = "New Patient";
@@ -88,6 +92,7 @@ class Patient extends Form {
         mobileNo: patient.mobileNo,
         address: patient.address,
         age: patient.age,
+        dateOfBirth: patient.dateOfBirth,
       };
       _id = patient._id;
     }
@@ -232,7 +237,8 @@ class Patient extends Form {
         >
           <form onSubmit={this.handleSubmit}>
             {this.renderInput("name", "Name")}            
-            {this.renderInput("age", "Age", "number")}
+            {/* {this.renderInput("age", "Age", "number")} */}
+            {this.renderDatePicker("dateOfBirth" , "Date Of Birth")}
             {this.renderInput("address", "Address")}
             {this.renderInput("mobileNo", "Mobile")}
             {this.renderButton("Save")}
