@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Joi from "joi-browser";
 import Input from "./input";
 import { DatePicker } from "antd";
+import moment from 'moment';
 
 const dateFormat = "YYYY-MM-DD";
 class Form extends Component {
@@ -70,12 +71,20 @@ class Form extends Component {
 
   renderDatePicker(name, label){
     const { data, errors } = this.state;    
+
+    let date = moment(new Date(), dateFormat);
+    
+    if(data[name] !== ''){
+      date = moment(data[name], dateFormat);
+    }
+
     return(
       <div className="mb-3">
         <div><label>{label}</label></div>
         <DatePicker
         style={{ width: "100%" }}
-        defaultValue={data[name]}
+        defaultValue={moment(new Date(), dateFormat)}
+        value = {date}
         format={dateFormat}
         onChange={this.onDateChange}
         error={errors[name]}

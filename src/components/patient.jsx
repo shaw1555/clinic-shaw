@@ -87,13 +87,13 @@ class Patient extends Form {
     let modalTitle = "New Patient";
 
     if (!_.isEmpty(patient)) {
-      modalTitle = "Modify Patient";
+      modalTitle = "Modify Patient";      
       data = {        
         name: patient.name,
         mobileNo: patient.mobileNo,
         address: patient.address,
         // age: patient.age,
-        dateOfBirth: patient.dateOfBirth,
+        dateOfBirth: formatDate(patient.dateOfBirth),
       };
       _id = patient._id;
     }
