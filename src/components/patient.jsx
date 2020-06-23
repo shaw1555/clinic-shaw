@@ -162,7 +162,7 @@ class Patient extends Form {
             </div>
             <div className="col-6">
               <button
-                className="btn btn-outline-primary float-right"
+                className="btn btn-outline-secondary float-right"
                 type="button"
                 onClick={() => this.showModal({})}
               >
@@ -201,7 +201,7 @@ class Patient extends Form {
                         <td>
                           <i
                             onClick={() => this.showModal(x)}
-                            style={{ color: "#007bff", fontSize: 18 }}
+                            style={{ color: "grey", fontSize: 18 }}
                             className="fa fa-pencil-square-o"
                             aria-hidden="true"
                           ></i>
