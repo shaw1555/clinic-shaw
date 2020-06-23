@@ -29,7 +29,7 @@ class Patient extends Form {
       mobileNo: "",
       address: "",
       // age: "",
-      dateOfBirth: defDate,
+      dateOfBirth: formatDate(defDate),
     },
     errors: {},
     _id: "",
@@ -81,7 +81,7 @@ class Patient extends Form {
       mobileNo: "",
       address: "",
       // age: "",
-      dateOfBirth: defDate,
+      dateOfBirth: formatDate(defDate),
     };
 
     let modalTitle = "New Patient";
@@ -190,7 +190,7 @@ class Patient extends Form {
                   <tbody>
                     {filterData.map((x) => (
                       <tr key={x._id}>
-                        <td>
+                        <td className="font-weight-bold">
                           <Link to={`/record/${x._id}`}>{x.name}</Link>
                         </td>                        
                         <td>{formatDate(x.dateOfBirth)}</td>

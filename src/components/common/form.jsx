@@ -71,20 +71,13 @@ class Form extends Component {
 
   renderDatePicker(name, label){
     const { data, errors } = this.state;    
-
-    let date = moment(new Date(), dateFormat);
-    
-    if(data[name] !== ''){
-      date = moment(data[name], dateFormat);
-    }
-
     return(
       <div className="mb-3">
         <div><label>{label}</label></div>
         <DatePicker
         style={{ width: "100%" }}
-        defaultValue={moment(new Date(), dateFormat)}
-        value = {date}
+        // defaultValue={moment(new Date(), dateFormat)}
+        value = {moment(data[name], dateFormat)}
         format={dateFormat}
         onChange={this.onDateChange}
         error={errors[name]}
